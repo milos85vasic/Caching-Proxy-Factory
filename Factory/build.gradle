@@ -19,7 +19,7 @@ buildscript {
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-String clazz = "net.milosvasic.factory.mail.Launcher"
+String clazz = "net.milosvasic.factory.caching.Launcher"
 
 repositories {
 

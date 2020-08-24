@@ -2,8 +2,7 @@
 
 package net.milosvasic.factory.caching
 
-
-import net.milosvasic.factory.fail
+import net.milosvasic.factory.compositeLogger
 import net.milosvasic.factory.log
 import net.milosvasic.factory.tag
 import net.milosvasic.logger.ConsoleLogger

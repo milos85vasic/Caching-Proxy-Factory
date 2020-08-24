@@ -1,0 +1,6 @@
+[submodule "Core"]
+	path = Core
+	url = git@github.com:milos85vasic/Server-Factory.git
+[submodule "Logger"]
+	path = Logger
+	url = git@github.com:milos85vasic/Logger.git

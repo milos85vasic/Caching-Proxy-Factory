@@ -57,4 +57,10 @@ test {
 }
 
 sourceSets.main.java.srcDirs += 'src/main/kotlin'
+sourceSets.main.java.srcDirs += isMacOS() ? 'src/os/macos/kotlin' : 'src/os/default/kotlin'
+
+private static boolean isMacOS() {
+
+    System.getProperty("os.name").toLowerCase().contains("mac")
+}
 

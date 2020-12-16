@@ -1,3 +1,7 @@
 {
-
+  "includes": [
+    "Uses.json",
+    "Server.json",
+    "Behavior.json"
+  ]
 }

@@ -22,6 +22,12 @@ fun main(args: Array<String>) {
 
         Validator.Arguments.validateNotEmpty(*args)
         val file = File(args[0])
+
+        val lofFilenameSuffix = file.name.replace(file.extension, "").replace(".", "") +
+                "_" + System.currentTimeMillis()
+
+        filesystemLogger.setFilenameSuffix(lofFilenameSuffix)
+
         if (file.exists()) {
             // TODO:
 

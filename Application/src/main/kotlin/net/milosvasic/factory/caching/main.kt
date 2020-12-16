@@ -29,6 +29,7 @@ fun main(args: Array<String>) {
         filesystemLogger.setFilenameSuffix(lofFilenameSuffix)
 
         if (file.exists()) {
+            log.v("Work in progress")
             // TODO:
 
         } else {

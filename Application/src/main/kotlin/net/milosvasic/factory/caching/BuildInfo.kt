@@ -1,8 +1,12 @@
 package net.milosvasic.factory.caching
 
-object BuildInfo {
+import net.milosvasic.factory.application.BuildInformation
 
-    const val NAME = "Caching-Proxy-Server-Factory"
-    const val VERSION = "1.0.0"
-    const val VERSION_CODE = (100 * 1000) + 0
+object BuildInfo : BuildInformation {
+
+    override val version = "1.0.0 Alpha 1"
+    override val versionCode = (100 * 1000) + 0
+    override val versionName = "Caching Proxy Server Factory Client"
+
+    override fun printName() = "$versionName $version"
 }

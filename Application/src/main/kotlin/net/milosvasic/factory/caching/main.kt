@@ -2,22 +2,38 @@
 
 package net.milosvasic.factory.caching
 
-import net.milosvasic.factory.compositeLogger
-import net.milosvasic.factory.log
-import net.milosvasic.factory.tag
+import net.milosvasic.factory.*
+import net.milosvasic.factory.BuildInfo
+import net.milosvasic.factory.validation.Validator
+import net.milosvasic.factory.validation.parameters.ArgumentsExpectedException
 import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
 import java.io.File
 
 fun main(args: Array<String>) {
 
-    initLogging()
-    log.v("Work in progress")
-}
+    tag = BuildInfo.versionName
+    val consoleLogger = ConsoleLogger()
+    val here = File(FILE_LOCATION_HERE)
+    val filesystemLogger = FilesystemLogger(here)
+    compositeLogger.addLoggers(consoleLogger, filesystemLogger)
 
-private fun initLogging() {
-    tag = BuildInfo.NAME
-    val console = ConsoleLogger()
-    val filesystem = FilesystemLogger(File("."))
-    compositeLogger.addLoggers(console, filesystem)
+    // TODO: OS init(s)
+    try {
+
+        Validator.Arguments.validateNotEmpty(*args)
+        val file = File(args[0])
+        if (file.exists()) {
+            // TODO:
+
+        } else {
+
+            val msg = "Configuration file does not exist: ${file.absolutePath}"
+            val error = IllegalArgumentException(msg)
+            fail(error)
+        }
+    } catch (e: ArgumentsExpectedException) {
+
+        fail(e)
+    }
 }

@@ -1,4 +1,4 @@
-package net.milosvasic.factory.caching
+package net.milosvasic.factory.proxy.caching.application
 
 import net.milosvasic.factory.application.BuildInformation
 

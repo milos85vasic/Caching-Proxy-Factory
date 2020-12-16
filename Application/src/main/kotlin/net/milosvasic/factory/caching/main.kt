@@ -3,7 +3,6 @@
 package net.milosvasic.factory.caching
 
 import net.milosvasic.factory.*
-import net.milosvasic.factory.BuildInfo
 import net.milosvasic.factory.validation.Validator
 import net.milosvasic.factory.validation.parameters.ArgumentsExpectedException
 import net.milosvasic.logger.ConsoleLogger

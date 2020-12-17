@@ -39,7 +39,10 @@ fun main(args: Array<String>) {
 
         if (file.exists()) {
             val recipe = FileConfigurationRecipe(file)
-            val builder = ServerFactoryBuilder().setRecipe(recipe)
+            val builder = ServerFactoryBuilder()
+                .setRecipe(recipe)
+                .setFeatureDatabase(false)
+
             args.forEach { arg ->
 
                 val argumentInstallationLocation = Argument.INSTALLATION_LOCATION.get()

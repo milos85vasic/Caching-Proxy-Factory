@@ -1,3 +1,52 @@
 {
-
+  "software": [
+    {
+      "name": "Caching proxy: Lighttpd",
+      "version": "1.0.0",
+      "installationSteps": {
+        "Docker": [
+          {
+            "type": "conditionCheck",
+            "value": "{{SERVICE.LIGHTTPD.NAME}}"
+          },
+          {
+            "type": "portRequired",
+            "value": "{{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}"
+          },
+          {
+            "type": "deploy",
+            "value": "main.proxy.caching/docker/lighttpd:1.0.0@:{{DOCKER.DOCKER_HOME}}/Lighttpd"
+          },
+          {
+            "type": "stack",
+            "value": "{{DOCKER.DOCKER_HOME}}/Lighttpd"
+          },
+          {
+            "type": "check",
+            "value": "{{SERVICE.LIGHTTPD.NAME}}"
+          },
+          {
+            "type": "command",
+            "value": "ln {{DOCKER.DOCKER_HOME}}/Lighttpd/lighttpd.service /etc/systemd/system/lighttpd.service"
+          },
+          {
+            "type": "command",
+            "value": "sh {{SERVER.SERVER_HOME}}/Utils/setenforce.sh"
+          },
+          {
+            "type": "command",
+            "value": "systemctl enable lighttpd.service"
+          },
+          {
+            "type": "reboot",
+            "value": "480"
+          },
+          {
+            "type": "check",
+            "value": "{{SERVICE.LIGHTTPD.NAME}}"
+          }
+        ]
+      }
+    }
+  ]
 }

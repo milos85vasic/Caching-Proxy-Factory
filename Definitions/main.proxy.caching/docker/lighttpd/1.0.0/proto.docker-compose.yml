@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  {{SERVICE.LIGHTTPD.NAME}}:
+    image: sebp/lighttpd:1.4.55-r1
+    container_name: {{SERVICE.LIGHTTPD.NAME}}
+    hostname: lighttpd.{{SERVER.DOMAIN}}
+    restart: always
+    ports:
+      - {{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}:{{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}
+    networks:
+      - {{SERVICE.NETWORK.NAME}}
+#    volumes:
+#      - {{SERVER.SERVER_HOME}}/Server/Postgres/Database:/Server/Postgres/Database
+
+networks:
+  {{SERVICE.NETWORK.NAME}}:
+    external: true
+
+
+

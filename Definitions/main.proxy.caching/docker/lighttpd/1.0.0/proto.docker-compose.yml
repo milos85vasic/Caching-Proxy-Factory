@@ -10,8 +10,9 @@ services:
       - {{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}:{{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}
     networks:
       - {{SERVICE.NETWORK.NAME}}
-#    volumes:
-#      - {{SERVER.SERVER_HOME}}/Server/Postgres/Database:/Server/Postgres/Database
+    volumes:
+      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cache:/var/cache/squid
+      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Log:/var/log/squid
 
 networks:
   {{SERVICE.NETWORK.NAME}}:

@@ -12,11 +12,13 @@ import net.milosvasic.factory.configuration.recipe.FileConfigurationRecipe
 import net.milosvasic.factory.error.ERROR
 import net.milosvasic.factory.execution.flow.callback.FlowCallback
 import net.milosvasic.factory.execution.flow.implementation.initialization.InitializationFlow
+import net.milosvasic.factory.mail.application.OSInit
 import net.milosvasic.factory.validation.Validator
 import net.milosvasic.factory.validation.parameters.ArgumentsExpectedException
 import net.milosvasic.logger.ConsoleLogger
 import net.milosvasic.logger.FilesystemLogger
 import java.io.File
+import java.io.IOException
 
 fun main(args: Array<String>) {
 
@@ -26,7 +28,22 @@ fun main(args: Array<String>) {
     val filesystemLogger = FilesystemLogger(here)
     compositeLogger.addLoggers(consoleLogger, filesystemLogger)
 
-    // TODO: OS init(s)
+    try {
+
+        OSInit.run()
+    } catch (e: IllegalArgumentException) {
+
+        fail(e)
+    } catch (e: NullPointerException) {
+
+        fail(e)
+    } catch (e: SecurityException) {
+
+        fail(e)
+    } catch (e: IOException) {
+
+        fail(e)
+    }
     try {
 
         Validator.Arguments.validateNotEmpty(*args)

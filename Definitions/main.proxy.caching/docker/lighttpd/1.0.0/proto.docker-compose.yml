@@ -1,6 +1,19 @@
 version: "3.7"
 
 services:
+  {{SERVICE.LIGHTTPD.NAME}}_CERT:
+    image: sebp/lighttpd:latest
+    container_name: {{SERVICE.LIGHTTPD.NAME}}_CERT
+    hostname: lighttpd.cert.{{SERVER.DOMAIN}}
+    ports:
+      - {{SERVICE.LIGHTTPD.PORTS.CERT_PORT}}:80
+      # certificate file url:
+      # http://<host>:<cert-server-port>/squid-proxy.pem
+    networks:
+      - {{SERVICE.NETWORK.NAME}}
+    volumes:
+      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Htdocs:/var/www/localhost/htdocs
+
   {{SERVICE.LIGHTTPD.NAME}}:
     image: komlevv/caching-proxy:latest
     container_name: {{SERVICE.LIGHTTPD.NAME}}

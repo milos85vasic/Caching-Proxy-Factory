@@ -11,7 +11,7 @@
           },
           {
             "type": "conditionCheck",
-            "value": "{{SERVICE.LIGHTTPD.NAME}}_CERT"
+            "value": "{{SERVICE.LIGHTTPD.NAME}}_cert"
           },
           {
             "type": "portRequired",
@@ -34,10 +34,6 @@
             "value": "{{SERVICE.LIGHTTPD.NAME}}"
           },
           {
-            "type": "check",
-            "value": "{{SERVICE.LIGHTTPD.NAME}}_CERT"
-          },
-          {
             "type": "command",
             "value": "ln {{DOCKER.DOCKER_HOME}}/Lighttpd/lighttpd.service /etc/systemd/system/lighttpd.service"
           },
@@ -56,10 +52,6 @@
           {
             "type": "check",
             "value": "{{SERVICE.LIGHTTPD.NAME}}"
-          },
-          {
-            "type": "check",
-            "value": "{{SERVICE.LIGHTTPD.NAME}}_CERT"
           },
           {
             "type": "portCheck",

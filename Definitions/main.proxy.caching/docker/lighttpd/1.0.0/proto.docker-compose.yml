@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  {{SERVICE.LIGHTTPD.NAME}}_CERT:
+  {{SERVICE.LIGHTTPD.NAME}}_cert:
     image: sebp/lighttpd:latest
-    container_name: {{SERVICE.LIGHTTPD.NAME}}_CERT
+    container_name: {{SERVICE.LIGHTTPD.NAME}}_cert
     hostname: lighttpd.cert.{{SERVER.DOMAIN}}
     ports:
       - {{SERVICE.LIGHTTPD.PORTS.CERT_PORT}}:80

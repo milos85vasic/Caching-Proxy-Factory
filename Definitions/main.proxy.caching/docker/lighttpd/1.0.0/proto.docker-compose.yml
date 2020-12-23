@@ -12,7 +12,7 @@ services:
     networks:
       - {{SERVICE.NETWORK.NAME}}
     volumes:
-      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Htdocs:/var/www/localhost/htdocs
+      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cert:/var/www/localhost/htdocs
 
   {{SERVICE.LIGHTTPD.NAME}}:
     image: komlevv/caching-proxy:latest
@@ -26,6 +26,7 @@ services:
     volumes:
       - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cache:/var/cache/squid
       - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Log:/var/log/squid
+      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cert:/etc/squid/ssl_cert
 
 networks:
   {{SERVICE.NETWORK.NAME}}:

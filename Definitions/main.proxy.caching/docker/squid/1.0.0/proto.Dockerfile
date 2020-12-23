@@ -1,9 +1,10 @@
-FROM alpine:3.12.3
+FROM centos:8
 
-RUN apk update \
-    && apk add squid-4.13-r0 \
-    && apk add curl \
-    && apk add openssl \
+ARG PROXY_PORT
+
+RUN dnf update -y && \
+    dnf clean all -y && \
+    dnf install -y squid curl openssl && \
     && rm -rf /var/cache/apk/*
 
 COPY Scripts/entrypoint.sh /usr/local/bin
@@ -19,5 +20,5 @@ VOLUME /var/cache/squid
 VOLUME /var/log/squid
 VOLUME /etc/squid/ssl_cert
 
-EXPOSE {{SERVICE.SQUID.PORTS.CACHING_PORT}}
+EXPOSE $PROXY_PORT
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

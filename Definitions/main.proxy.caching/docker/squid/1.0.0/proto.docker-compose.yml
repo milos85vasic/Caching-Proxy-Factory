@@ -17,6 +17,8 @@ services:
   {{SERVICE.SQUID.NAME}}:
     build:
       context: .
+      args:
+        - PROXY_PORT={{SERVICE.SQUID.PORTS.CACHING_PORT}}
     container_name: {{SERVICE.SQUID.NAME}}
     hostname: squid.{{SERVER.DOMAIN}}
     restart: always

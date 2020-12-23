@@ -15,7 +15,8 @@ services:
       - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cert:/var/www/localhost/htdocs
 
   {{SERVICE.LIGHTTPD.NAME}}:
-    image: komlevv/caching-proxy:latest
+    build:
+      context: .
     container_name: {{SERVICE.LIGHTTPD.NAME}}
     hostname: lighttpd.{{SERVER.DOMAIN}}
     restart: always
@@ -24,8 +25,8 @@ services:
     networks:
       - {{SERVICE.NETWORK.NAME}}
     volumes:
-      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cache:/var/cache/squid
       - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Log:/var/log/squid
+      - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cache:/var/cache/squid
       - {{SERVER.SERVER_HOME}}/Server/Lighttpd/Cert:/etc/squid/ssl_cert
 
 networks:

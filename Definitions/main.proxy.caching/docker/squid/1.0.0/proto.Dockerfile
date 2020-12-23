@@ -5,7 +5,6 @@ ARG PROXY_PORT
 RUN dnf update -y && \
     dnf clean all -y && \
     dnf install -y squid curl openssl && \
-    mkdir -p /etc/squid/ssl_cert && \
     mkdir -p /var/cache/squid
 
 COPY Scripts/entrypoint.sh /usr/local/bin

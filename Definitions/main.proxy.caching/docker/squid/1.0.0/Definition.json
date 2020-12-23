@@ -3,9 +3,9 @@
     "group": "main.proxy.caching",
     "type": "docker",
     "version": "1.0.0",
-    "name": "lighttpd"
+    "name": "squid"
   },
   "includes": [
-    "Lighttpd.json"
+    "Squid.json"
   ]
 }

@@ -1,11 +1,11 @@
 [Unit]
-Description=Lighttpd running on Docker
+Description=Squid running on Docker
 After=docker.service
 Requires=docker.service
 
 [Service]
 Restart=always
-ExecStart={{DOCKER.DOCKER_HOME}}/Definitions/Lighttpd/start.sh
+ExecStart={{DOCKER.DOCKER_HOME}}/Definitions/Squid/start.sh
 
 [Install]
 WantedBy=multi-user.target

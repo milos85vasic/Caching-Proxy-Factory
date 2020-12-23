@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  {{SERVICE.SQUID.NAME}}_cert:
+    image: sebp/lighttpd:latest
+    container_name: {{SERVICE.SQUID.NAME}}_cert
+    hostname: squid.cert.{{SERVER.DOMAIN}}
+    ports:
+      - {{SERVICE.SQUID.PORTS.CERT_PORT}}:80
+      # certificate file url:
+      # http://<host>:<cert-server-port>/squid-proxy.pem
+    networks:
+      - {{SERVICE.NETWORK.NAME}}
+    volumes:
+      - {{SERVER.SERVER_HOME}}/Server/Squid/Cert:/var/www/localhost/htdocs
+
+  {{SERVICE.SQUID.NAME}}:
+    build:
+      context: .
+    container_name: {{SERVICE.SQUID.NAME}}
+    hostname: squid.{{SERVER.DOMAIN}}
+    restart: always
+    ports:
+      - {{SERVICE.SQUID.PORTS.CACHING_PORT}}:{{SERVICE.SQUID.PORTS.CACHING_PORT}}
+    networks:
+      - {{SERVICE.NETWORK.NAME}}
+    volumes:
+      - {{SERVER.SERVER_HOME}}/Server/Squid/Log:/var/log/squid
+      - {{SERVER.SERVER_HOME}}/Server/Squid/Cache:/var/cache/squid
+      - {{SERVER.SERVER_HOME}}/Server/Squid/Cert:/etc/squid/ssl_cert
+
+networks:
+  {{SERVICE.NETWORK.NAME}}:
+    external: true
+
+
+

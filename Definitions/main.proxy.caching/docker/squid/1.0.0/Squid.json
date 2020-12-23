@@ -1,37 +1,37 @@
 {
   "software": [
     {
-      "name": "Caching proxy: Lighttpd",
+      "name": "Caching proxy: Squid",
       "version": "1.0.0",
       "installationSteps": {
         "Docker": [
           {
             "type": "conditionCheck",
-            "value": "{{SERVICE.LIGHTTPD.NAME}}"
+            "value": "{{SERVICE.SQUID.NAME}}"
           },
           {
             "type": "conditionCheck",
-            "value": "{{SERVICE.LIGHTTPD.NAME}}_cert"
+            "value": "{{SERVICE.SQUID.NAME}}_cert"
           },
           {
             "type": "portRequired",
-            "value": "{{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}"
+            "value": "{{SERVICE.SQUID.PORTS.CACHING_PORT}}"
           },
           {
             "type": "deploy",
-            "value": "main.proxy.caching/docker/lighttpd:1.0.0@:{{DOCKER.DOCKER_HOME}}/Lighttpd"
+            "value": "main.proxy.caching/docker/squid:1.0.0@:{{DOCKER.DOCKER_HOME}}/Squid"
           },
           {
             "type": "stack",
-            "value": "{{DOCKER.DOCKER_HOME}}/Lighttpd"
+            "value": "{{DOCKER.DOCKER_HOME}}/Squid"
           },
           {
             "type": "check",
-            "value": "{{SERVICE.LIGHTTPD.NAME}}"
+            "value": "{{SERVICE.SQUID.NAME}}"
           },
           {
             "type": "command",
-            "value": "ln {{DOCKER.DOCKER_HOME}}/Lighttpd/lighttpd.service /etc/systemd/system/lighttpd.service"
+            "value": "ln {{DOCKER.DOCKER_HOME}}/Squid/squid.service /etc/systemd/system/squid.service"
           },
           {
             "type": "command",
@@ -39,7 +39,7 @@
           },
           {
             "type": "command",
-            "value": "systemctl enable lighttpd.service"
+            "value": "systemctl enable squid.service"
           },
           {
             "type": "reboot",
@@ -47,11 +47,11 @@
           },
           {
             "type": "check",
-            "value": "{{SERVICE.LIGHTTPD.NAME}}"
+            "value": "{{SERVICE.SQUID.NAME}}"
           },
           {
             "type": "portCheck",
-            "value": "{{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}"
+            "value": "{{SERVICE.SQUID.PORTS.CACHING_PORT}}"
           }
         ]
       }

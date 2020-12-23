@@ -19,5 +19,5 @@ VOLUME /var/cache/squid
 VOLUME /var/log/squid
 VOLUME /etc/squid/ssl_cert
 
-EXPOSE 3128
+EXPOSE {{SERVICE.SQUID.PORTS.CACHING_PORT}}
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

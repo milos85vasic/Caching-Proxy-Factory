@@ -1,7 +1,7 @@
 FROM alpine:3.6
 
 RUN apk update \
-    && apk add squid=3.5.23-r2 \
+    && apk add squid-3.5.27-r0 \
     && apk add curl \
     && apk add openssl \
     && rm -rf /var/cache/apk/*

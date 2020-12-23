@@ -18,10 +18,6 @@
             "value": "{{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}"
           },
           {
-            "type": "portRequired",
-            "value": "{{SERVICE.LIGHTTPD.PORTS.CERT_PORT}}"
-          },
-          {
             "type": "deploy",
             "value": "main.proxy.caching/docker/lighttpd:1.0.0@:{{DOCKER.DOCKER_HOME}}/Lighttpd"
           },
@@ -56,10 +52,6 @@
           {
             "type": "portCheck",
             "value": "{{SERVICE.LIGHTTPD.PORTS.CACHING_PORT}}"
-          },
-          {
-            "type": "portCheck",
-            "value": "{{SERVICE.LIGHTTPD.PORTS.CERT_PORT}}"
           }
         ]
       }

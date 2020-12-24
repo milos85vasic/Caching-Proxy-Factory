@@ -21,7 +21,7 @@ if ! test -e "$SSL_CERT_DIR"/"$PEM"; then
     -keyout "$SSL_CERT_DIR"/"$PEM" \
     -out "$SSL_CERT_DIR"/"$PEM" \
     -config "$SSL_CERT_DIR"/openssl.cnf \
-    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" \
+    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" &&
     /usr/lib/squid/ssl_crtd -c -s /var/lib/ssl_db &&
     chown squid:squid -R /var/lib/ssl_db; then
 

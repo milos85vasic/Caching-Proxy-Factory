@@ -7,15 +7,18 @@ RUN dnf update -y && \
     dnf install -y squid curl openssl && \
     mkdir -p /var/cache/squid
 
-COPY Scripts/entrypoint.sh /usr/local/bin
-COPY Configuration/squid.conf /etc/squid/squid.conf
-COPY Configuration/openssl.cnf /etc/squid/ssl_cert/openssl.cnf
-
-RUN chmod 755 /usr/local/bin/entrypoint.sh
-
 VOLUME /var/cache/squid
 VOLUME /var/log/squid
 VOLUME /etc/squid/ssl_cert
 
+COPY Scripts/entrypoint.sh /usr/local/bin
+COPY Scripts/initialize_certificate.sh /usr/local/bin
+COPY Configuration/squid.conf /etc/squid/squid.conf
+COPY Configuration/openssl.cnf /etc/squid/ssl_cert/openssl.cnf
+
+RUN chmod 755 /usr/local/bin/entrypoint.sh && \
+RUN chmod 750 /usr/local/bin/initialize_certificate.sh && \
+RUN sh /usr/local/bin/initialize_certificate.sh
+
 EXPOSE $PROXY_PORT
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD sh /usr/local/bin/entrypoint.sh "${PROXY_PORT}"

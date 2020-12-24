@@ -2,8 +2,8 @@
 
 set -e
 
-SQUID_CONF=/etc/squid/squid.conf
-SQUID_CACHE_DIR=/var/cache/squid
+SQUID_CONF="/etc/squid/squid.conf"
+SQUID_CACHE_DIR="/var/cache/squid"
 
 echo "Checking cache..."
 if ! test -e "$SQUID_CACHE_DIR"/00; then

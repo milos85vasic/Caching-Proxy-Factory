@@ -21,4 +21,4 @@ RUN chmod 750 /usr/local/bin/initialize_certificate.sh && \
 RUN sh /usr/local/bin/initialize_certificate.sh
 
 EXPOSE $PROXY_PORT
-CMD sh /usr/local/bin/entrypoint.sh "${PROXY_PORT}"
+CMD sh /usr/local/bin/entrypoint.sh

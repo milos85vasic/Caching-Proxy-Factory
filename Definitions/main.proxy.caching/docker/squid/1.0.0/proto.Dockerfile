@@ -18,7 +18,7 @@ COPY Configuration/openssl.cnf /etc/squid/ssl_cert/openssl.cnf
 
 RUN chmod 755 /usr/local/bin/entrypoint.sh && \
 RUN chmod 750 /usr/local/bin/initialize_certificate.sh && \
-RUN sh /usr/local/bin/initialize_certificate.sh
+RUN /usr/local/bin/initialize_certificate.sh
 
 EXPOSE $PROXY_PORT
 CMD sh /usr/local/bin/entrypoint.sh

@@ -16,7 +16,7 @@ echo "Checking certificate"
 if ! test -e "$SSL_CERT_DIR"/"$PEM"; then
 
   echo "Initializing new certificate"
-  if openssl req -new -key rsa:2048 \
+  if openssl req -new -newkey rsa:2048 \
     -sha256 -days 365 -nodes -x509 -extensions v3_ca \
     -keyout "$SSL_CERT_DIR"/"$PEM" \
     -out "$SSL_CERT_DIR"/"$PEM" \

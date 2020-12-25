@@ -1,4 +1,4 @@
-FROM centos:8
+FROM fedora:32
 
 ARG PROXY_PORT
 

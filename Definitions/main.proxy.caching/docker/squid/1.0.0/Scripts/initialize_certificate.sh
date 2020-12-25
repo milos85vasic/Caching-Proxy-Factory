@@ -3,9 +3,10 @@
 set -e
 
 PEM="squid-proxy.pem"
+SQUID_DIR="/etc/squid"
 SQUID_LOG_DIR="/var/log/squid"
 SQUID_CACHE_DIR="/var/cache/squid"
-SSL_CERT_DIR="/etc/squid/ssl_cert"
+SSL_CERT_DIR="$SQUID_DIR/ssl_cert"
 
 chown -R squid:squid "$SQUID_CACHE_DIR"
 chown -R squid:squid "$SQUID_LOG_DIR"
@@ -20,7 +21,7 @@ if ! test -e "$SSL_CERT_DIR"/"$PEM"; then
     -sha256 -days 365 -nodes -x509 -extensions v3_ca \
     -keyout "$SSL_CERT_DIR"/"$PEM" \
     -out "$SSL_CERT_DIR"/"$PEM" \
-    -config "$SSL_CERT_DIR"/openssl.cnf \
+    -config "$SQUID_DIR"/openssl.cnf \
     -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" &&
     /usr/lib/squid/ssl_crtd -c -s /var/lib/ssl_db &&
     chown squid:squid -R /var/lib/ssl_db; then

@@ -10,7 +10,7 @@ RUN dnf update -y && \
 COPY Scripts/entrypoint.sh /usr/local/bin
 COPY Scripts/initialize_certificate.sh /usr/local/bin
 COPY Configuration/squid.conf /etc/squid/squid.conf
-COPY Configuration/openssl.cnf /etc/squid/ssl_cert/openssl.cnf
+COPY Configuration/openssl.cnf /etc/squid/openssl.cnf
 
 RUN chmod 750 /usr/local/bin/entrypoint.sh && \
     chmod 750 /usr/local/bin/initialize_certificate.sh

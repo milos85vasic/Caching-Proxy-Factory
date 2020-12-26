@@ -26,7 +26,7 @@ if ! test -e "$SSL_CERT_DIR"/"$PEM"; then
     -config "$SQUID_DIR"/openssl.cnf \
     -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" &&
     mkdir -p "$SSL_DB_DIR" &&
-    /usr/lib64/squid/security_file_certgen -c -s "$SSL_DB" &&
+    /usr/lib64/squid/security_file_certgen -c -s "$SSL_DB" -M 4MB &&
     chown squid:squid -R "$SSL_DB"; then
 
     echo "New certificate was initialized"

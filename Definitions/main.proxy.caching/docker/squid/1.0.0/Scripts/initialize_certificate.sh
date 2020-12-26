@@ -4,6 +4,8 @@ set -e
 
 PEM="squid-proxy.pem"
 SQUID_DIR="/etc/squid"
+SSL_DB_DIR="/var/lib/squid"
+SSL_DB="$SSL_DB_DIR/ssl_db"
 SQUID_LOG_DIR="/var/log/squid"
 SQUID_CACHE_DIR="/var/cache/squid"
 SSL_CERT_DIR="$SQUID_DIR/ssl_cert"
@@ -23,8 +25,9 @@ if ! test -e "$SSL_CERT_DIR"/"$PEM"; then
     -out "$SSL_CERT_DIR"/"$PEM" \
     -config "$SQUID_DIR"/openssl.cnf \
     -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=www.example.com" &&
-    /usr/lib64/squid/security_file_certgen -c -s /var/lib/ssl_db &&
-    chown squid:squid -R /var/lib/ssl_db; then
+    mkdir -p "$SSL_DB_DIR" &&
+    /usr/lib64/squid/security_file_certgen -c -s "$SSL_DB" &&
+    chown squid:squid -R "$SSL_DB"; then
 
     echo "New certificate was initialized"
   else

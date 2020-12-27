@@ -25,9 +25,9 @@ if ! test -e "$SQUID_DIR"/"$PEM"; then
     openssl x509 -in "$SQUID_DIR"/"$PEM" -outform DER -out "$SQUID_DIR"/squid.der &&
     chown squid:squid "$SQUID_DIR"/"$PEM" &&
     chmod 400 "$SQUID_DIR"/"$PEM" &&
-    mkdir -p "$SSL_DB_DIR" &&
-    chown squid:squid -R "$SSL_DB_DIR" &&
-    /usr/lib64/squid/security_file_certgen -c -s "$SSL_DB" &&
+    mkdir -p "$SSL_DB" &&
+    chown -R squid:squid "$SSL_DB" &&
+    /usr/lib64/squid/security_file_certgen -c -s "$SSL_DB" -M 4MB &&
     chown -R squid:squid "$SSL_DB"; then
 
     echo "New certificate was initialized"

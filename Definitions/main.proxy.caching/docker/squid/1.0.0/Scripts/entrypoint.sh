@@ -15,4 +15,7 @@ else
 fi
 
 echo "Starting Squid"
-squid -f "$SQUID_CONF" -NYCd 1
+
+# FIXME:
+# squid -f "$SQUID_CONF" -NYCd 1
+tail -F /var/log/squid/cache.log

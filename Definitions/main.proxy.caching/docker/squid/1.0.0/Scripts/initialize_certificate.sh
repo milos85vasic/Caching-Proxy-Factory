@@ -4,7 +4,7 @@ set -e
 
 PEM="squid-proxy.pem"
 SQUID_DIR="/etc/squid"
-SSL_DB_DIR="/var/lib/squid"
+SSL_DB_DIR="/usr/local/squid/var/cache/squid/"
 SSL_DB="$SSL_DB_DIR/ssl_db"
 SQUID_LOG_DIR="/var/log/squid"
 SQUID_CACHE_DIR="/var/cache/squid"

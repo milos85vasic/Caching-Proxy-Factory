@@ -1,6 +1,7 @@
 FROM fedora:33
 
 ARG PROXY_PORT
+ARG PROXY_DOMAIN
 
 RUN dnf update -y && \
     dnf clean all -y && \
@@ -23,5 +24,5 @@ VOLUME /etc/squid/ssl_cert
 
 EXPOSE $PROXY_PORT
 
-CMD sh /usr/local/bin/initialize_certificate.sh && \
+CMD sh /usr/local/bin/initialize_certificate.sh "$PROXY_DOMAIN" && \
     sh /usr/local/bin/entrypoint.sh

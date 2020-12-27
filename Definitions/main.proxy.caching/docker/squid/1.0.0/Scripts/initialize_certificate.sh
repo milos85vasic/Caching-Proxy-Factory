@@ -12,11 +12,9 @@ SQUID_CACHE_DIR="/var/cache/squid"
 
 chown -R squid:squid "$SQUID_CACHE_DIR"
 chown -R squid:squid "$SQUID_LOG_DIR"
-chown -R squid:squid "$SSL_CERT_DIR"
-chmod 755 "$SSL_CERT_DIR"
 
 echo "Checking certificate"
-if ! test -e "$SSL_CERT_DIR"/"$PEM"; then
+if ! test -e "$SQUID_DIR"/"$PEM"; then
 
   echo "Initializing new certificate"
   if openssl req -new -newkey rsa:2048 \
@@ -40,5 +38,5 @@ if ! test -e "$SSL_CERT_DIR"/"$PEM"; then
   fi
 else
 
-  echo "Found existing certificate at $SSL_CERT_DIR/$PEM"
+  echo "Found existing certificate at $SQUID_DIR/$PEM"
 fi

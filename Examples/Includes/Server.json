@@ -4,15 +4,15 @@
       "DOMAIN": "dev.local",
       "DOMAINS": "dev.local",
       "SERVER_HOME": "/root",
-      "REBOOT_ALLOWED": true
-    },
-    "INFO": {
-      "COUNTRY": "RS",
-      "PROVINCE": "Belgrade",
-      "CITY": "Belgrade",
-      "ORGANISATION": "Milos Vasic",
-      "EMAIL": "test@dev.local",
-      "DEPARTMENT": "IT Department"
+      "REBOOT_ALLOWED": true,
+      "INFO": {
+        "COUNTRY": "RS",
+        "PROVINCE": "Belgrade",
+        "CITY": "Belgrade",
+        "ORGANISATION": "Milos Vasic",
+        "EMAIL": "test@dev.local",
+        "DEPARTMENT": "IT Department"
+      }
     }
   }
 }

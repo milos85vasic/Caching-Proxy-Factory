@@ -6,12 +6,13 @@
       "SERVER_HOME": "/root",
       "REBOOT_ALLOWED": true
     },
-    "SERVICE": {
-      "PROXY": {
-        "CACHING": {
-          "PORT": "0000"
-        }
-      }
+    "INFO": {
+      "COUNTRY": "RS",
+      "PROVINCE": "Belgrade",
+      "CITY": "Belgrade",
+      "ORGANISATION": "Milos Vasic",
+      "EMAIL": "test@dev.local",
+      "DEPARTMENT": "IT Department"
     }
   }
 }

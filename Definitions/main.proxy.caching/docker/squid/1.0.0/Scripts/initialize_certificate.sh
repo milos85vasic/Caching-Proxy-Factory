@@ -21,7 +21,7 @@ if ! test -e "$SQUID_DIR"/"$PEM"; then
     -days 365 -nodes -x509 \
     -keyout "$SQUID_DIR"/"$PEM" \
     -out "$SQUID_DIR"/"$PEM" \
-    -subj "/C=US/ST=Denial/L=Springfield/O=Dis/CN=$DOMAIN" &&
+    -subj "/C={{SERVER.INFO.COUNTRY}}/ST={{SERVER.INFO.PROVINCE}}/L={{SERVER.INFO.CITY}}/O={{SERVER.INFO.DEPARTMENT}}/CN=$DOMAIN" &&
     openssl x509 -in "$SQUID_DIR"/"$PEM" -outform DER -out "$SQUID_DIR"/squid.der &&
     chown squid:squid "$SQUID_DIR"/"$PEM" &&
     chmod 400 "$SQUID_DIR"/"$PEM" &&

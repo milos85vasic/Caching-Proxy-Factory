@@ -2,7 +2,15 @@
 
 set -e
 
+CITY="$4"
 DOMAIN="$1"
+COUNTRY="$2"
+PROVINCE="$3"
+DEPARTMENT="$5"
+
+echo "Parameters:"
+echo "C=$COUNTRY ST=$PROVINCE L=$CITY O=$DEPARTMENT CN=$DOMAIN"
+
 PEM="squidCA.pem"
 SQUID_DIR="/etc/squid"
 SSL_DB_DIR="/var/lib/squid"
@@ -22,7 +30,7 @@ if ! test -e "$SQUID_DIR"/"$PEM"; then
     -days 365 -nodes -x509 \
     -keyout "$SQUID_DIR"/"$PEM" \
     -out "$SQUID_DIR"/"$PEM" \
-    -subj "/C={{SERVER.INFO.COUNTRY}}/ST={{SERVER.INFO.PROVINCE}}/L={{SERVER.INFO.CITY}}/O={{SERVER.INFO.DEPARTMENT}}/CN=$DOMAIN" &&
+    -subj "/C=$COUNTRY/ST=$PROVINCE/L=$CITY/O=$DEPARTMENT/CN=$DOMAIN" &&
     openssl x509 -in "$SQUID_DIR"/"$PEM" -outform DER -out "$SQUID_DIR"/squid.der &&
     chown squid:squid "$SQUID_DIR"/"$PEM" &&
     chmod 400 "$SQUID_DIR"/"$PEM" &&

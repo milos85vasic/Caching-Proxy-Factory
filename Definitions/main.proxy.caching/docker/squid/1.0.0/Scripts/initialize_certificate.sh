@@ -17,6 +17,7 @@ echo "Checking certificate"
 if ! test -e "$SQUID_DIR"/"$PEM"; then
 
   echo "Initializing new certificate"
+  # TODO: MSF-392
   if openssl req -new -newkey rsa:2048 \
     -days 365 -nodes -x509 \
     -keyout "$SQUID_DIR"/"$PEM" \

@@ -1,6 +1,6 @@
 ![](Logo.png)
 
-# Caching Proxy Server Factory
+# Caching Proxy Factory
 
 Instantiate, configure caching proxy server and distribute configuration.
 

@@ -19,10 +19,6 @@
             "USERNAME": "cache",
             "PASSWORD": "Test12345"
           }
-        },
-        "NETWORK": {
-          "NAME": "server_factory_network",
-          "SUBNET": "172.18.0.0/16"
         }
       }
     }

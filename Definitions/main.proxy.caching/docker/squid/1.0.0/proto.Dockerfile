@@ -25,6 +25,7 @@ RUN chmod 750 /usr/local/bin/entrypoint.sh && \
 VOLUME /var/cache/squid
 VOLUME /var/log/squid
 VOLUME /etc/squid/ssl_cert
+VOLUME /etc/squid/passwords
 
 EXPOSE $PROXY_PORT
 

@@ -22,6 +22,7 @@ services:
         - {{SERVER.SERVER_HOME}}/Server/Squid/Log:/var/log/squid
         - {{SERVER.SERVER_HOME}}/Server/Squid/Cache:/var/cache/squid
         - {{SERVER.SERVER_HOME}}/Server/Squid/Cert:/etc/squid/ssl_cert
+        - {{SERVER.SERVER_HOME}}/Server/Squid/Users:/etc/squid/passwords
 
 networks:
     {{SERVICE.NETWORK.NAME}}:

@@ -24,7 +24,6 @@ RUN chmod 750 /usr/local/bin/entrypoint.sh && \
     chmod 750 /usr/local/bin/initialize_certificate.sh && \
     chmod 750 /etc/squid/passwords
 
-
 VOLUME /var/cache/squid
 VOLUME /var/log/squid
 VOLUME /etc/squid/ssl_cert

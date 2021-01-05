@@ -11,6 +11,8 @@ services:
           - PROXY_PROVINCE={{SERVER.INFO.PROVINCE}}
           - PROXY_CITY={{SERVER.INFO.CITY}}
           - PROXY_DEPARTMENT={{SERVER.INFO.DEPARTMENT}}
+          - PROXY_USER={{SERVICE.SQUID.CREDENTIALS.USERNAME}}
+          - PROXY_USER_PASSWORD={{SERVICE.SQUID.CREDENTIALS.PASSWORD}}
       container_name: {{SERVICE.SQUID.NAME}}
       hostname: squid.{{SERVER.DOMAIN}}
       restart: always

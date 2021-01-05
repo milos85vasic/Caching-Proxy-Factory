@@ -6,6 +6,8 @@ ARG PROXY_COUNTRY
 ARG PROXY_PROVINCE
 ARG PROXY_CITY
 ARG PROXY_DEPARTMENT
+ARG PROXY_USER
+ARG PROXY_USER_PASSWORD
 
 RUN dnf update -y && \
     dnf clean all -y && \
@@ -22,7 +24,8 @@ COPY Configuration/openssl.cnf /etc/squid/openssl.cnf
 
 RUN chmod 750 /usr/local/bin/entrypoint.sh && \
     chmod 750 /usr/local/bin/initialize_certificate.sh && \
-    chmod 750 /etc/squid/passwords
+    chmod 750 /etc/squid/passwords && \
+    htpasswd -c -b /etc/squid/passwords/accounts "$PROXY_USER" "$PROXY_USER_PASSWORD"
 
 VOLUME /var/cache/squid
 VOLUME /var/log/squid

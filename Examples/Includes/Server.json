@@ -10,13 +10,13 @@
         "ORGANISATION": "Milos Vasic",
         "EMAIL": "test@dev.local",
         "DEPARTMENT": "IT Department"
-      },
-      "SERVICE": {
-        "SQUID": {
-          "CREDENTIALS": {
-            "USERNAME": "cache",
-            "PASSWORD": "Test12345"
-          }
+      }
+    },
+    "SERVICE": {
+      "SQUID": {
+        "CREDENTIALS": {
+          "USERNAME": "cache",
+          "PASSWORD": "Test12345"
         }
       }
     }

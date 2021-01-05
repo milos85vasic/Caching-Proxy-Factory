@@ -1,6 +1,7 @@
 {
   "variables": {
     "SERVER": {
+      "DOMAIN": "dev.local",
       "SERVER_HOME": "/root",
       "REBOOT_ALLOWED": true,
       "INFO": {

@@ -12,7 +12,8 @@ RUN dnf update -y && \
     dnf install findutils -y && \
     dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
     dnf install -y squid curl openssl httpd && \
-    mkdir -p /var/cache/squid
+    mkdir -p /var/cache/squid && \
+    mkdir -p /etc/squid/passwords
 
 COPY Scripts/entrypoint.sh /usr/local/bin
 COPY Scripts/initialize_certificate.sh /usr/local/bin
@@ -20,7 +21,9 @@ COPY Configuration/squid.conf /etc/squid/squid.conf
 COPY Configuration/openssl.cnf /etc/squid/openssl.cnf
 
 RUN chmod 750 /usr/local/bin/entrypoint.sh && \
-    chmod 750 /usr/local/bin/initialize_certificate.sh
+    chmod 750 /usr/local/bin/initialize_certificate.sh && \
+    chmod 750 /etc/squid/passwords
+
 
 VOLUME /var/cache/squid
 VOLUME /var/log/squid

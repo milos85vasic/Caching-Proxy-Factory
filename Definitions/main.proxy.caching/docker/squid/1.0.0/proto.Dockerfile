@@ -24,8 +24,10 @@ COPY Configuration/openssl.cnf /etc/squid/openssl.cnf
 
 RUN chmod 750 /usr/local/bin/entrypoint.sh && \
     chmod 750 /usr/local/bin/initialize_certificate.sh && \
-    chmod 750 /etc/squid/passwords && \
-    htpasswd -c -b /etc/squid/passwords/accounts "$PROXY_USER" "$PROXY_USER_PASSWORD"
+    htpasswd -c -b /etc/squid/passwords/accounts "$PROXY_USER" "$PROXY_USER_PASSWORD" && \
+    chown -R squid:squid /etc/squid/passwords && \
+    chmod 750 /etc/squid/passwords
+
 
 VOLUME /var/cache/squid
 VOLUME /var/log/squid

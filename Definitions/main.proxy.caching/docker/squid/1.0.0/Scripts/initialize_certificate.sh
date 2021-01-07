@@ -11,15 +11,15 @@ DEPARTMENT="$5"
 echo "Parameters:"
 echo "C=$COUNTRY ST=$PROVINCE L=$CITY O=$DEPARTMENT CN=$DOMAIN"
 
-PEM="squidCA.pem"
 SQUID_DIR="/etc/squid"
+PEM="ssl_cert/squidCA.pem"
 SSL_DB_DIR="/var/lib/squid"
 SSL_DB="$SSL_DB_DIR/ssl_db"
 SQUID_LOG_DIR="/var/log/squid"
 SQUID_CACHE_DIR="/var/cache/squid"
 
-chown -R squid:squid "$SQUID_CACHE_DIR"
 chown -R squid:squid "$SQUID_LOG_DIR"
+chown -R squid:squid "$SQUID_CACHE_DIR"
 
 echo "Checking certificate"
 if ! test -e "$SQUID_DIR"/"$PEM"; then

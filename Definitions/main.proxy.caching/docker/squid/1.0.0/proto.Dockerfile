@@ -13,7 +13,7 @@ RUN dnf update -y && \
     dnf clean all -y && \
     dnf install findutils -y && \
     dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
-    dnf install -y squid curl openssl httpd && \
+    dnf install -y squid curl openssl httpd-tools && \
     mkdir -p /var/cache/squid && \
     mkdir -p /etc/squid/passwords
 

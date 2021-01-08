@@ -23,8 +23,8 @@ if ! test -e "$passwords"; then
   mkdir -p "$passwords"
 fi
 
-chown -R squid:squid "$passwords" && \
-chmod 440 "$passwords"
+chown -R squid:squid "$passwords" &&
+  chmod 440 "$passwords"
 
 accounts="$passwords"/accounts
 if ! test -e "$accounts"; then
@@ -39,7 +39,8 @@ if ! test -e "$accounts"; then
 fi
 
 echo "Checking user accounts"
-if echo "$PROXY_USER $PROXY_USER_PASSWORD" /usr/lib64/squid/basic_ncsa_auth "$accounts" | grep -i "OK"; then
+result=$(echo "$PROXY_USER $PROXY_USER_PASSWORD" | /usr/lib64/squid/basic_ncsa_auth "$accounts")
+if echo "$result" | grep "OK" >/dev/null 2>&1; then
 
   echo "Starting Squid"
   squid -f "$SQUID_CONF" -NYCd 1

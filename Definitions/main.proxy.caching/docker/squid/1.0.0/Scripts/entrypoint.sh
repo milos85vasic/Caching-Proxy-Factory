@@ -39,7 +39,7 @@ if ! test -e "$accounts"; then
 fi
 
 echo "Checking user accounts"
-if /usr/lib64/squid/basic_ncsa_auth "$accounts"; then
+if echo "$PROXY_USER $PROXY_USER_PASSWORD" /usr/lib64/squid/basic_ncsa_auth "$accounts" | grep -i "OK"; then
 
   echo "Starting Squid"
   squid -f "$SQUID_CONF" -NYCd 1

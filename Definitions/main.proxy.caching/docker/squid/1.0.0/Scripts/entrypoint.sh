@@ -7,8 +7,6 @@ PROXY_USER_PASSWORD="$2"
 SQUID_CONF="/etc/squid/squid.conf"
 SQUID_CACHE_DIR="/var/cache/squid"
 
-echo "Parameters: User=$PROXY_USER Password=$PROXY_USER_PASSWORD"
-
 echo "Checking cache"
 if ! test -e "$SQUID_CACHE_DIR"/00; then
 

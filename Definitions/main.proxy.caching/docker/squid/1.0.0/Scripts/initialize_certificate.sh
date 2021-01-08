@@ -8,8 +8,6 @@ COUNTRY="$2"
 PROVINCE="$3"
 DEPARTMENT="$5"
 
-echo "Parameters: C=$COUNTRY ST=$PROVINCE L=$CITY O=$DEPARTMENT CN=$DOMAIN"
-
 SQUID_DIR="/etc/squid"
 PEM="ssl_cert/squidCA.pem"
 SSL_DB_DIR="/var/lib/squid"

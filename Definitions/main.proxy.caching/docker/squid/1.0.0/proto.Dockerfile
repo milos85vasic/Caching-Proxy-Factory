@@ -9,6 +9,15 @@ ARG PROXY_DEPARTMENT
 ARG PROXY_USER
 ARG PROXY_USER_PASSWORD
 
+ENV PROXY_PORT "$PROXY_PORT"
+ENV PROXY_DOMAIN "$PROXY_DOMAIN"
+ENV PROXY_COUNTRY "$PROXY_COUNTRY"
+ENV PROXY_PROVINCE "$PROXY_PROVINCE"
+ENV PROXY_CITY "$PROXY_CITY"
+ENV PROXY_DEPARTMENT "$PROXY_DEPARTMENT"
+ENV PROXY_USER "$PROXY_USER"
+ENV PROXY_USER_PASSWORD "$PROXY_USER_PASSWORD"
+
 RUN dnf update -y && \
     dnf clean all -y && \
     dnf install findutils -y && \
@@ -31,8 +40,6 @@ VOLUME /etc/squid/passwords
 
 EXPOSE $PROXY_PORT
 
-CMD echo "Parameters: $PROXY_DOMAIN, $PROXY_COUNTRY, $PROXY_PROVINCE, $PROXY_CITY, $PROXY_DEPARTMENT" && \
-    echo "Parameters: $PROXY_USER $PROXY_USER_PASSWORD" && \
-    sh /usr/local/bin/initialize_certificate.sh \
+CMD sh /usr/local/bin/initialize_certificate.sh \
     "$PROXY_DOMAIN" "$PROXY_COUNTRY" "$PROXY_PROVINCE" "$PROXY_CITY" "$PROXY_DEPARTMENT" && \
     sh /usr/local/bin/entrypoint.sh "$PROXY_USER" "$PROXY_USER_PASSWORD"

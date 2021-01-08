@@ -31,6 +31,8 @@ VOLUME /etc/squid/passwords
 
 EXPOSE $PROXY_PORT
 
-CMD sh /usr/local/bin/initialize_certificate.sh \
+CMD echo "Parameters: $PROXY_DOMAIN, $PROXY_COUNTRY, $PROXY_PROVINCE, $PROXY_CITY, $PROXY_DEPARTMENT" && \
+    echo "Parameters: $PROXY_USER $PROXY_USER_PASSWORD" && \
+    sh /usr/local/bin/initialize_certificate.sh \
     "$PROXY_DOMAIN" "$PROXY_COUNTRY" "$PROXY_PROVINCE" "$PROXY_CITY" "$PROXY_DEPARTMENT" && \
     sh /usr/local/bin/entrypoint.sh "$PROXY_USER" "$PROXY_USER_PASSWORD"

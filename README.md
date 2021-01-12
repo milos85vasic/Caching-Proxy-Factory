@@ -4,6 +4,8 @@
 
 Run your own caching proxy server.
 
+*Note:* Current project version is dedicated for software development purposes only.
+
 # Key features
 
 This is a list of key features offered by Caching Proxy Factory:

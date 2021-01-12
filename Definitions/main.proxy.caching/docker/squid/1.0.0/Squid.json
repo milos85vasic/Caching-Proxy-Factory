@@ -55,7 +55,7 @@
           },
           {
             "type": "command",
-            "value": "curl -x \"localhost:{{SERVICE.SQUID.PORTS.CACHING_PORT}}\" http://www.google.com >/dev/null 2>&1"
+            "value": "curl -x \"localhost:{{SERVICE.SQUID.PORTS.CACHING_PORT}}\" http://www.google.com >/dev/null 2>&1 && echo OK"
           }
         ]
       }

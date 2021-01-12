@@ -2,7 +2,15 @@
 
 # Caching Proxy Factory
 
-Instantiate, configure caching proxy server and distribute configuration.
+Run your own caching proxy server.
+
+# Key features
+
+This is a list of key features offered by Caching Proxy Factory:
+
+- Caching proxy
+- Self-signed certificate
+- Tbd.
 
 # Compatibility
 

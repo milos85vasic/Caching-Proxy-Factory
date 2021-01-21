@@ -5,6 +5,13 @@
     "version": "1.0.0",
     "name": "squid"
   },
+  "variables": {
+    "SERVICE": {
+      "PROXY": {
+        "PROXY_CA_FILE": "proxyCA.pem"
+      }
+    }
+  },
   "includes": [
     "Squid.json"
   ]

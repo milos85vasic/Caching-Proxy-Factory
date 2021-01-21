@@ -13,6 +13,7 @@ services:
           - PROXY_DEPARTMENT={{SERVER.INFO.DEPARTMENT}}
           - PROXY_USER={{SERVICE.SQUID.CREDENTIALS.USERNAME}}
           - PROXY_USER_PASSWORD={{SERVICE.SQUID.CREDENTIALS.PASSWORD}}
+          - PROXY_CA_FILE={{SERVICE.PROXY.PROXY_CA_FILE}}
       container_name: {{SERVICE.SQUID.NAME}}
       hostname: squid.{{SERVER.DOMAIN}}
       restart: always

@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Centos Linux 8 Caching Proxy: Init mDNS" type="BashProRunConfiguration" folderName="Utils">
-    <option name="scriptParameters" value="192.168.100.108 cache.local" />
+    <option name="scriptParameters" value="192.168.100.134 cache.local" />
     <option name="scriptPath" value="Core/Utils/init_mdns_remote.sh" />
     <RunnerSettings bashdbVersion="Automatic" bashPathMapper="Automatic" RunnerId="pro.bashsupport.shDebugRunner" />
     <method v="2" />

@@ -9,7 +9,7 @@ PROVINCE="$3"
 DEPARTMENT="$5"
 
 SQUID_DIR="/etc/squid"
-PEM="ssl_cert/squidCA.pem"
+PEM="ssl_cert/proxyCA.pem"
 SSL_DB_DIR="/var/lib/squid"
 SSL_DB="$SSL_DB_DIR/ssl_db"
 SQUID_LOG_DIR="/var/log/squid"

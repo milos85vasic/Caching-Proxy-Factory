@@ -1,6 +1,18 @@
 version: "3.7"
 
 services:
+    {{SERVICE.PROXY_CA_FILE_ACCESS.NAME}}:
+      image: sebp/lighttpd
+      container_name: {{SERVICE.PROXY_CA_FILE_ACCESS.NAME}}
+      hostname: lighttpd.{{SERVER.DOMAIN}}
+      restart: always
+      ports:
+        - {{SERVICE.PROXY_CA_FILE_ACCESS.PORTS.PORT_EXPOSED}}:80
+      networks:
+        - {{SERVICE.NETWORK.NAME}}
+      volumes:
+        - {{SERVER.SERVER_HOME}}/Server/Squid/Cert:/var/www/localhost/htdocs
+
     {{SERVICE.SQUID.NAME}}:
       build:
         context: .

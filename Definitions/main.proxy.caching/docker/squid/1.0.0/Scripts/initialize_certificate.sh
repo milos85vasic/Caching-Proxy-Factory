@@ -22,7 +22,7 @@ chown -R squid:squid "$SQUID_CACHE_DIR"
 echo "Checking certificate existence: $PEM"
 if ! test -e "$SQUID_DIR"/"$PEM"; then
 
-  echo "Initializing new certificate"
+  echo "Initializing new self-signed certificate"
   # TODO: MSF-392
   if openssl req -new -newkey rsa:2048 \
     -days 365 -nodes -x509 \

@@ -2,7 +2,7 @@
 
 # Caching Proxy Factory
 
-Run your own caching proxy server.
+Setup and run your own caching proxy server.
 
 *Note:* Current project version is dedicated for software development purposes only.
 
